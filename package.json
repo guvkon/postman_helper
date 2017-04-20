@@ -1,0 +1,23 @@
+{
+  "name": "postman_helper",
+  "version": "0.1.0",
+  "description": "Helper Postman utilities",
+  "author": "Konstantin Gusev <guvkon@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guvkon/postman_helper"
+  },
+  "keywords": [
+    "postman",
+    "newman",
+    "helper"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^2.3.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
