@@ -1,7 +1,7 @@
 # Postman Helper
 
 ## Description
-Tool which adds some helpful functions to test JSON responses.
+Tool which adds some helpful functions to test JSON responses in Postman/Newman.
 
 ## How to Use?
 Copy contents of `/dist/postman_helper.min.js` and add as a global variable to Postman (e.g. `postman_helper`). Then use it like so:
