@@ -41,32 +41,30 @@ Validator.prototype.isElementFieldCorrect = function (field, subjectValue) {
         return false;
     }
 
-    if (_.eg(subjectValue) === undefined) {
-        // Handle simple types
-        if (typeof subjectValue !== 'object' || subjectValue === null) {
-            return field === subjectValue;
-        }
-
-        // Handle an empty array case
-        if (Array.isArray(subjectValue)) {
-            if (subjectValue.length === 0) {
-                return field.length === 0;
-            }
-        }
-
-        // Handle arrays and objects
-        for (var index in subjectValue) {
-            if (!this.isElementFieldCorrect(field[index], subjectValue[index])) {
-                return false;
-            }
-        }
-
-        return field.length === subjectValue.length;
-    }
-    else {
+    if (typeof subjectValue === 'string') {
+        subjectValue = this.replaceTemplateVariables(subjectValue);
         // Environment or global variable name is provided. Variables are stored as strings so we need to compare using "==".
-        return field == _.eg(subjectValue);
+        return field == subjectValue;
     }
+    else if (typeof subjectValue !== 'object' || subjectValue === null) {
+        return field === subjectValue;
+    }
+
+    // Handle an empty array case
+    if (Array.isArray(subjectValue)) {
+        if (subjectValue.length === 0) {
+            return field.length === 0;
+        }
+    }
+
+    // Handle arrays and objects
+    for (var index in subjectValue) {
+        if (!this.isElementFieldCorrect(field[index], subjectValue[index])) {
+            return false;
+        }
+    }
+
+    return field.length === subjectValue.length;
 };
 
 Validator.prototype.isElementCorrect = function (referenceElement, subjectElement) {
@@ -88,7 +86,7 @@ Validator.prototype.isResponseCorrect = function (referenceElement) {
     return this.isElementCorrect(referenceElement, this.data);
 };
 
-Validator.prototype.isElementInArray = function (subjectArray, referenceElement) {
+Validator.prototype.isElementInArray = function (referenceElement, subjectArray) {
     for (var index in subjectArray) {
         if (this.isElementCorrect(referenceElement, subjectArray[index])) {
             return true;
