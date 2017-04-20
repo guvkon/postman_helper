@@ -30,7 +30,7 @@ Validator.prototype.replaceTemplateVariables = function (string) {
         if (match === null) {
             break;
         }
-        string = string.replace(match[0], _.eg(match[1]));
+        string = string.replace(match[0], this.eg(match[1]));
     } while (true);
 
     return string;
@@ -79,7 +79,7 @@ Validator.prototype.isElementCorrect = function (referenceElement, subjectElemen
 };
 
 Validator.prototype.isEnvsEqual = function (env1, env2) {
-    return _.e(env1) == _.e(env2);
+    return environment[env1] == environment[env2];
 };
 
 Validator.prototype.isResponseCorrect = function (referenceElement) {
@@ -94,4 +94,8 @@ Validator.prototype.isElementInArray = function (referenceElement, subjectArray)
     }
 
     return false;
+};
+
+Validator.prototype.eg = function (variable) {
+    return environment[variable] || globals[variable];
 };

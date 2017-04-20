@@ -1,6 +1,6 @@
 {
   "name": "postman_helper",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Helper Postman utilities",
   "author": "Konstantin Gusev <guvkon@gmail.com>",
   "repository": {
