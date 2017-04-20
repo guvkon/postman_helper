@@ -28,12 +28,12 @@ Tester.prototype.isEnvsNotEqual = function (env1, env2) {
     return this.addTest('Envs are not equal', !this.validator.isEnvsEqual(env1, env2));
 };
 
-Tester.prototype.isResponseCorrect = function (referenceElement) {
-    return this.addTest('Correct response', this.validator.isResponseCorrect(referenceElement));
+Tester.prototype.isResponseCorrect = function (referenceResponse) {
+    return this.addTest('Correct response', this.validator.isResponseCorrect(referenceResponse));
 };
 
-Tester.prototype.isElementInArray = function (array, referenceElement) {
-    return this.addTest('Element is in array', this.validator.isElementInArray(array, referenceElement));
+Tester.prototype.isElementInArray = function (needle, haystack) {
+    return this.addTest('Element is in array', this.validator.isElementInArray(needle, haystack));
 };
 
 Tester.prototype.sleep = function (delayInMilliseconds) {
@@ -42,4 +42,8 @@ Tester.prototype.sleep = function (delayInMilliseconds) {
     do {
         curDate = new Date();
     } while (curDate - date < delayInMilliseconds);
+};
+
+Tester.prototype.debug = function (variable, name) {
+    this.validator.debug(variable, name);
 };
