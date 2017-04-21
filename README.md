@@ -21,7 +21,7 @@ tester.isResponseCorrect({
 
 [Postman style variables](http://blog.getpostman.com/2014/02/20/using-variables-inside-postman-and-collection-runner/) (`{{some_variable}}`) are supported.
 
-### List of Tester methods:
+### List of Tester methods/fields:
 #### `isResponseCorrect(referenceResponse)`
 
 Adds a test which asserts response based on `referenceElement` object provided.
@@ -43,6 +43,9 @@ Pauses a test script execution by `delayInMilliseconds` milliseconds.
 
 #### `debug(variable, name)`
 Outputs `variable` as stringified JSON.
+
+#### `data`
+Field which contains response JS object decoded from the received JSON.
 
 ## Credits
 This project was initially developed for [ManagingLife](http://www.managinglife.com/).
