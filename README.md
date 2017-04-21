@@ -18,6 +18,9 @@ tester.isResponseCorrect({
   missingFromResponse: undefined
 });
 ```
+
+[Postman style variables](http://blog.getpostman.com/2014/02/20/using-variables-inside-postman-and-collection-runner/) (`{{some_variable}}`) are supported.
+
 ### List of Tester methods:
 #### `isResponseCorrect(referenceResponse)`
 
