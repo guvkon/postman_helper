@@ -5,7 +5,7 @@ Tool which adds some helpful functions to test JSON responses in Postman/Newman.
 
 ## How to Use?
 Copy contents of `/dist/postman_helper.min.js` and add as a global variable to Postman (e.g. `postman_helper`). Then use it like so:
-```
+```javascript
 eval(globals.postman_helper);
 var tester = new Tester();
 
@@ -40,3 +40,6 @@ Pauses a test script execution by `delayInMilliseconds` milliseconds.
 
 #### `debug(variable, name)`
 Outputs `variable` as stringified JSON.
+
+## Credits
+This project was initially developed for [ManagingLife](http://www.managinglife.com/).
